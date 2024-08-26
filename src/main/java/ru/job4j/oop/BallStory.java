@@ -12,8 +12,10 @@ public class BallStory {
         ball.tryRun(false);
         fox.tryEat(ball);
         ball.tryRun(true);
-        if (ball.tryRun(false))
+        if (ball.tryRun(false)) {
             System.out.println("Колобок убежал");
-        else System.out.println("Rолобок съеден");
+        } else {
+            System.out.println("Rолобок съеден");
+        }
     }
 }
