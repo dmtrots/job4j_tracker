@@ -7,15 +7,7 @@ public class BallStory {
         Wolf wolf = new Wolf();
         Fox fox = new Fox();
         hare.tryEat(ball);
-        ball.tryRun(false);
         wolf.tryEat(ball);
-        ball.tryRun(false);
         fox.tryEat(ball);
-        ball.tryRun(true);
-        if (ball.tryRun(false)) {
-            System.out.println("Колобок убежал");
-        } else {
-            System.out.println("Rолобок съеден");
-        }
     }
 }
