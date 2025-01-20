@@ -23,12 +23,8 @@ public class Tracker {
                 size++;
             }
         }
-        result = Arrays.copyOf(result, size);
-        for (int index = 0; index < result.length; index++) {
-            System.out.println(result[index]);
+        return result = Arrays.copyOf(result, size);
         }
-        return result;
-    }
 
     private int indexOf(int id) {
         int result = -1;
