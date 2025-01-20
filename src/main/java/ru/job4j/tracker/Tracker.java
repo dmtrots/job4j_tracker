@@ -25,7 +25,7 @@ public class Tracker {
                 size++;
             }
         }
-        return result = Arrays.copyOf(result, size);
+        return Arrays.copyOf(result, size);
     }
 
     private int indexOf(int id) {
