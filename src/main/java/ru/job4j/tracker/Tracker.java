@@ -16,7 +16,9 @@ public class Tracker {
     public Item[] findAll() {
         Item[] result = new Item[size];
         int size = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0;
+             i < items.length;
+             i++) {
             Item item = items[i];
             if (item != null) {
                 result[size] = item;
@@ -24,7 +26,7 @@ public class Tracker {
             }
         }
         return result = Arrays.copyOf(result, size);
-        }
+    }
 
     private int indexOf(int id) {
         int result = -1;
