@@ -1,0 +1,41 @@
+package ru.job4j.io;
+
+import java.util.Scanner;
+
+public class Matches {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Игра 11.");
+        boolean turn = true;
+        int count = 11;
+        while (count > 0) {
+            String player = turn ? "Первый игрок" : "Второй игрок";
+            System.out.println(player + " введите число от 1 до 3:");
+            int matches = Integer.parseInt(input.nextLine());
+            switch (matches) {
+                case 0 -> {
+                    System.out.println("Вы не взяли ни одной спички");
+                    System.out.println("Количество оставшихся спичек: " + count);
+                }
+                case 1, 2, 3 -> {
+                    count -= matches;
+                    System.out.println("Количество оставшихся спичек: " + count);
+                    turn = !turn;
+                }
+                default -> {
+                    System.out.println("Вы взяли больше трех спичек");
+                    System.out.println("Количество оставшихся спичек: " + count);
+                }
+            }
+        }
+        if (count < 0) {
+            System.out.println("Ошибка: Вы взяли большее количество спичек, чем осталось");
+        } else {
+            if (!turn) {
+                System.out.println("Выиграл первый игрок");
+            } else {
+                System.out.println("Выиграл второй игрок");
+            }
+        }
+    }
+}
