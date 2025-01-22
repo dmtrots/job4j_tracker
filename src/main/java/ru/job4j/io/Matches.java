@@ -12,30 +12,22 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-            switch (matches) {
-                case 0 -> {
-                    System.out.println("Вы не взяли ни одной спички");
-                    System.out.println("Количество оставшихся спичек: " + count);
-                }
-                case 1, 2, 3 -> {
-                    count -= matches;
-                    System.out.println("Количество оставшихся спичек: " + count);
-                    turn = !turn;
-                }
-                default -> {
-                    System.out.println("Вы взяли больше трех спичек");
-                    System.out.println("Количество оставшихся спичек: " + count);
-                }
+            if (matches == 0) {
+                System.out.println("Вы не взяли ни одной спички");
+                System.out.println("Количество оставшихся спичек: " + count);
+            } else if (matches == 1 || matches == 2 || matches == 3) {
+                count -= matches;
+                System.out.println("Количество оставшихся спичек: " + count);
+                turn = !turn;
+            } else  {
+                System.out.println("Вы взяли больше трех спичек");
+                System.out.println("Количество оставшихся спичек: " + count);
             }
         }
-        if (count < 0) {
-            System.out.println("Ошибка: Вы взяли большее количество спичек, чем осталось");
-        } else {
             if (!turn) {
                 System.out.println("Выиграл первый игрок");
             } else {
                 System.out.println("Выиграл второй игрок");
             }
-        }
     }
 }
