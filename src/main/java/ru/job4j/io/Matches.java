@@ -15,7 +15,7 @@ public class Matches {
             if (matches == 0) {
                 System.out.println("Вы не взяли ни одной спички");
                 System.out.println("Количество оставшихся спичек: " + count);
-            } else if (matches == 1 || matches == 2 || matches == 3) {
+            } else if (matches >= 1 && matches <= 3) {
                 count -= matches;
                 System.out.println("Количество оставшихся спичек: " + count);
                 turn = !turn;
