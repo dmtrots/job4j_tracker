@@ -19,6 +19,8 @@ public class Matches {
                 count -= matches;
                 System.out.println("Количество оставшихся спичек: " + count);
                 turn = !turn;
+            } else if (matches < 0) {
+                System.out.println("Количество взятых спичек должно быть больше 0");
             } else  {
                 System.out.println("Вы взяли больше трех спичек");
                 System.out.println("Количество оставшихся спичек: " + count);
