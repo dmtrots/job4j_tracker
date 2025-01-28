@@ -4,12 +4,12 @@ public class FindEl {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int result = -1;
         for (int i = 0; i < value.length; i++) {
-            if (key == value[i]) {
+            if (key.equals(value[i])) {
                 result = i;
                 break;
             }
         }
-        if (key == null) {
+        if (result == -1) {
             throw new ElementNotFoundException("No suitable elements");
         }
         return result;
