@@ -33,9 +33,6 @@ public class StartUI {
     private void showMenu(List<UserAction> actions) {
         output.println("Меню:");
         int cell = 0;
-        /*for (int i = 0; i < actions.size(); i++) {
-            output.println(i + ". " + actions.get(i).name());
-        }*/
         for (UserAction action : actions) {
             output.println((cell) + ". " + actions.get(cell++).name());
         }
