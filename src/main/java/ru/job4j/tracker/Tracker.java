@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
+    private int ids = 1;
+
     private final List<Item> items = new ArrayList<>();
 
     public Item add(Item item) {
+        item.setId(ids++);
         items.add(item);
         return item;
     }
@@ -17,9 +20,9 @@ public class Tracker {
 
     private int indexOf(int id) {
         int result = -1;
-        for (Item item : items) {
-            if (item.getId() == id) {
-                result = id;
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
+                result = index;
                 break;
             }
         }
@@ -45,7 +48,8 @@ public class Tracker {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
-            items.set(id, item);
+            item.setId(id);
+            items.set(id - 1, item);
         }
         return result;
     }
