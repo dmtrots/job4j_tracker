@@ -35,8 +35,7 @@ public class Tracker {
             if (key.equals(item.getName())) {
                 result.add(item);
             }
-        } 
-        
+        }
         return result;
     }
 
