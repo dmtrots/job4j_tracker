@@ -9,15 +9,12 @@ public class Departments {
         for (String value : departments) {
             String start = "";
             for (String element : value.split("/")) {
-                if (start.isEmpty()) {
+                if (start.isEmpty() || start.charAt(0) == element.charAt(0)) {
                     start = element;
                     temp.add(element);
                 } else if (element.charAt(0) != start.charAt(0)) {
                     temp.add(start + "/" + element);
                     start = start + "/" + element;
-                } else {
-                    start = element;
-                    temp.add(element);
                 }
             }
         }
