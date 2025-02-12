@@ -12,7 +12,7 @@ public class Departments {
                 if (start.isEmpty() || start.charAt(0) == element.charAt(0)) {
                     start = element;
                     temp.add(element);
-                } else if (element.charAt(0) != start.charAt(0)) {
+                } else {
                     temp.add(start + "/" + element);
                     start = start + "/" + element;
                 }
