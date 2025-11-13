@@ -7,5 +7,5 @@ import ru.job4j.tracker.input.Input;
 public interface UserAction {
     String name();
 
-    boolean execute(Input input, SqlTracker sqlTracker);
+    boolean execute(Input input, Store store);
 }

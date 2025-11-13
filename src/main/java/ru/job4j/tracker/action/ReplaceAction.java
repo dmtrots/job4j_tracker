@@ -19,12 +19,12 @@ public class ReplaceAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker sqlTracker) {
+    public boolean execute(Input input, Store store) {
         output.println("=== Edit item ===");
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        if (sqlTracker.replace(id, item)) {
+        if (store.replace(id, item)) {
             output.println("Заявка изменена успешно.");
         } else {
             output.println("Ошибка замены заявки.");

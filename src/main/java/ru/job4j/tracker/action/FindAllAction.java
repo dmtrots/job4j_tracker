@@ -1,6 +1,7 @@
 package ru.job4j.tracker.action;
 
 import ru.job4j.tracker.SqlTracker;
+import ru.job4j.tracker.Store;
 import ru.job4j.tracker.input.Input;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.output.Output;
@@ -20,9 +21,9 @@ public class FindAllAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker sqlTracker) {
+    public boolean execute(Input input, Store store) {
         output.println("=== Вывод всех заявок ===");
-        List<Item> items = sqlTracker.findAll();
+        List<Item> items = store.findAll();
         if (!items.isEmpty()) {
             for (Item item : items) {
                 output.println(item);

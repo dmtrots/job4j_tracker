@@ -19,11 +19,11 @@ public class CreateAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, SqlTracker sqlTracker) {
+    public boolean execute(Input input, Store store) {
         output.println("=== Создание новой заявки ===");
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
-        sqlTracker.add(item);
+        store.add(item);
         output.println("Добавленная заявка: " + item);
         return true;
     }

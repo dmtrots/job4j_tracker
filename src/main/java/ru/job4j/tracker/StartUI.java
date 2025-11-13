@@ -25,7 +25,7 @@ public class StartUI {
                 continue;
             }
             UserAction action = actions.get(select);
-            run = action.execute(input, (SqlTracker) store);
+            run = action.execute(input, store);
         }
     }
 

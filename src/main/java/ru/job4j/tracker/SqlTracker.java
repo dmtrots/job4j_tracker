@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class SqlTracker implements Store {
+public class SqlTracker implements Store, AutoCloseable {
 
     private Connection connection;
 
@@ -49,7 +49,7 @@ public class SqlTracker implements Store {
                      connection.prepareStatement("INSERT INTO items(name, created) VALUES (?, ?)",
                              Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
-            statement.setTimestamp(2, item.getCreated());
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
             statement.execute();
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -68,7 +68,7 @@ public class SqlTracker implements Store {
         try (PreparedStatement statement =
                      connection.prepareStatement("UPDATE items SET name = ?, created = ? WHERE id = ?")) {
             statement.setString(1, item.getName());
-            statement.setTimestamp(2, item.getCreated());
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
             statement.setInt(3, id);
             result = statement.executeUpdate() > 0;
         } catch (Exception e) {

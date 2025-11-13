@@ -24,6 +24,9 @@ public class Item {
     public Item() { }
 
     public Item(int id, String name, LocalDateTime created) {
+        this.id = id;
+        this.name = name;
+        this.created = created;
     }
 
     public int getId() {
@@ -42,8 +45,8 @@ public class Item {
         this.name = name;
     }
 
-    public Timestamp getCreated() {
-        return Timestamp.valueOf(created);
+    public LocalDateTime getCreated() {
+        return created;
     }
 
     @Override

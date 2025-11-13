@@ -18,7 +18,7 @@ class StartUITest {
         Input input = new MockInput(
                 new String[]{"0", "Item name", "1"}
         );
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         UserAction[] actions = {
                 new CreateAction(output),
                 new ExitAction(output)
@@ -30,7 +30,7 @@ class StartUITest {
     @Test
     void whenReplaceItem() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = memTracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input input = new MockInput(
@@ -47,7 +47,7 @@ class StartUITest {
     @Test
     void whenDeleteItem() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = memTracker.add(new Item("Deleted item"));
         Input input = new MockInput(
                 new String[]{"0", String.valueOf(item.getId()), "1"}
@@ -66,7 +66,7 @@ class StartUITest {
         Input input = new MockInput(
                 new String[]{"0"}
         );
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         UserAction[] actions = {
                 new ExitAction(output)
         };
@@ -81,7 +81,7 @@ class StartUITest {
     @Test
     void whenReplaceItemTestOutputIsSuccessfully() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item one = memTracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input input = new MockInput(
@@ -109,7 +109,7 @@ class StartUITest {
     @Test
     void whenFindAllItems() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = memTracker.add(new Item("Found item"));
         Input input = new MockInput(
                 new String[]{"0", "1"}
@@ -136,7 +136,7 @@ class StartUITest {
     @Test
     void whenFindItemByName() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = memTracker.add(new Item("Found item"));
         Input input = new MockInput(
                 new String[]{"0", item.getName(), "1"}
@@ -163,7 +163,7 @@ class StartUITest {
     @Test
     void whenFindItemById() {
         Output output = new StubOutput();
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = memTracker.add(new Item("Found item"));
         Input input = new MockInput(
                 new String[]{"0", String.valueOf(item.getId()), "1"}
@@ -193,7 +193,7 @@ class StartUITest {
         Input input = new MockInput(
                 new String[] {"7", "0"}
         );
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         UserAction[] actions = new UserAction[] {
                 new ExitAction(output)
         };

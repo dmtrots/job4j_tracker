@@ -10,7 +10,7 @@ import java.util.List;
 public class MemTrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item();
         item.setName("test1");
         memTracker.add(item);
@@ -20,7 +20,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenTestFindById() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item bug = new Item("Bug");
         Item item = memTracker.add(bug);
         Item result = memTracker.findById(item.getId());
@@ -29,7 +29,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenTestFindAll() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item first = new Item("First");
         Item second = new Item("Second");
         memTracker.add(first);
@@ -40,7 +40,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenTestFindByNameCheckArrayLength() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item first = new Item("First");
         Item second = new Item("Second");
         memTracker.add(first);
@@ -54,7 +54,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenTestFindByNameCheckSecondItemName() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item first = new Item("First");
         Item second = new Item("Second");
         memTracker.add(first);
@@ -68,7 +68,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenReplaceItemIsSuccessful() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("Bug");
         memTracker.add(item);
         int id = item.getId();
@@ -79,7 +79,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenReplaceItemIsNotSuccessful() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("Bug");
         memTracker.add(item);
         Item updateItem = new Item("Bug with description");
@@ -90,7 +90,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenDeleteItemIsSuccessful() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("Bug");
         memTracker.add(item);
         int id = item.getId();
@@ -100,7 +100,7 @@ public class MemTrackerTest {
 
     @Test
     public void whenDeleteItemIsNotSuccessful() {
-        Store memTracker = new SqlTracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("Bug");
         memTracker.add(item);
         memTracker.delete(1000);

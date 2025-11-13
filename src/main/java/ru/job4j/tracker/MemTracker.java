@@ -1,9 +1,10 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemTracker {
+public class MemTracker implements Store {
     private int ids = 1;
 
     private final List<Item> items = new ArrayList<>();
@@ -60,5 +61,10 @@ public class MemTracker {
         if (result) {
             items.remove(index);
         }
+    }
+
+    @Override
+    public void close() throws Exception {
+        System.out.println("MemTracker closed.");
     }
 }
