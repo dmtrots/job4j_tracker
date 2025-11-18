@@ -1,0 +1,5 @@
+Для анализа я использовал инструмент jstat. Изначально было создано 1 млн. заявок, видно, что eden и survivor почти
+пустые, объекты переселились в old generation. Old generation заполнена только частично, примерно на 196 тыс. Кб. После
+был создан миллиард заявок, что привело к возникновению ошибки OutOfMemorySpace Java heap space: failed reallocation of
+scalar replaced objects. Произошло переполнение old generation, потому что minor GC хоть и чистил young generation, но
+major GC не успевал чистить old generation, поскольку создавалось очень большое количество объектов и heap была израсходована.
